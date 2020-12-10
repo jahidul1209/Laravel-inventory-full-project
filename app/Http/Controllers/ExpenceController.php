@@ -36,7 +36,7 @@ class ExpenceController extends Controller
 
     }
         public function TodayExpence(){
-        	date_default_timezone_set("Asia/Dhaka");
+        	// date_default_timezone_set("Asia/Dhaka");
 		    $date = date("d/m/y");
 			$today = DB:: table('expences')->where('date' , $date )->get();
 			return view('expence/today-expence',compact('today'));

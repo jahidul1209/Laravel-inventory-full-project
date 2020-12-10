@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Exports\ProductsExport;
+use App\Imports\ProductsImport;
+use Maatwebsite\Excel\Facades\Excel;
 use DB;
 use Illuminate\Http\Request;
 
@@ -168,7 +171,7 @@ class ProductController extends Controller
 
 
           $view= DB::table('products')
-          			// ->join('categories','products.category_id' , 'categories.id')
+          			// ->join('categories','products.id' , 'categories.cat_name')
           			// ->join('suppliers','products.supplier_id','suppliers.id')
           			// ->select('categories.cat_name','products.*','suppliers.name')
           			->where('id', $id)
@@ -177,4 +180,25 @@ class ProductController extends Controller
           return view ('product/view-product',compact('view'));
    }
 
+
+   public function ImportProduct(){
+    return view ('product/import-product');
+   } 
+      public function export() 
+    {
+        return Excel::download(new ProductsExport, 'products.xlsx');
+    }
+
+        public function import(request $request){
+           $import =  Excel::import(new ProductsImport, $request->file('import_file'));
+            
+          if($import){
+                        $notification=array(
+                            'message' => 'Successfully Import',
+                            'alert-type' =>'success'
+                        );
+                        return redirect()->back()->with($notification);
+                    }else{
+                }
+    }
 }

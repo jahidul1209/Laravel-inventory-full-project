@@ -50,7 +50,7 @@
                                         <input type="text" name = "amount" class="form-control" id="exampleInputEmail1" placeholder="Amount"required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="hidden" name = "date" class="form-control" id="exampleInputEmail1" value = "{{date('d/m/y')}}" required>
+                                        <input type="hidden" name = "date" class="form-control" id="exampleInputEmail1" value = "{{date('d-m-y')}}" required>
                                     </div> 
                                     <div class="form-group">
                                         <input type="hidden" name = "month" class="form-control" id="exampleInputEmail1" value = "{{date('F')}}" required>

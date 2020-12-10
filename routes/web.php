@@ -63,6 +63,10 @@ Route::get('/edit-product/{id}', 'ProductController@EditProduct');
 Route::post('/update-product/{id}', 'ProductController@UpdateProduct');
 Route::get('/delete-product/{id}', 'ProductController@DeleteProduct');
 Route::get('/view-product/{id}', 'ProductController@ViewProduct');
+// Import Product
+Route::get('/import-product', 'ProductController@ImportProduct')->name('import-product');
+Route::get('/export', 'ProductController@export')->name('export');
+Route::post('/import', 'ProductController@import')->name('import');
 // Expence Section
 Route::get('/add-expence', 'ExpenceController@AddExpence')->name('add-expence');
 Route::get('/today-expence', 'ExpenceController@TodayExpence')->name('today-expence');
@@ -91,5 +95,25 @@ Route::get('/december-expence', 'ExpenceController@DecemberExpence')->name('dece
 Route::get('/add-attendence', 'AttendenceController@AddAttendence')->name('add-attendence');
 Route::get('/all-attendence', 'AttendenceController@AllAttendence')->name('all-attendence');
 Route::post('/insert-attendence', 'AttendenceController@StoreAttendence');
+Route::get('/edit-attendence/{att_date}', 'AttendenceController@EditAttendence');
+Route::get('/delete-attendence/{att_date}', 'AttendenceController@DeleteAttendence');
+Route::post('/update-attendence', 'AttendenceController@UpdateAttendence');
+Route::get('/view-attendence/{att_date}', 'AttendenceController@ViewAttendence');
+
+//  POS (Poin Of Sell)
+Route::get('/pos', 'PosController@StorePos')->name('pos');
+Route::post('/add-cart', 'PosController@AddCart')->name('add-cart');
+Route::post('/cart-update/{rowId}', 'PosController@CartUpdate');
+Route::get('/cart-delete/{rowId}', 'PosController@CartDelete');
+Route::post('/create-invoice', 'PosController@CreateInvoice');
+
+Route::post('/invoice-details', 'PosController@InvoiceDetails')->name('invoice-details');
+
+//Orders
+Route::get('/pending-orders', 'OrderController@PendingOrder')->name('pending-order');
+Route::get('/view-orders/{id}', 'OrderController@ViewOrder');
+Route::get('/pos-done/{id}', 'OrderController@PosDone');
+Route::get('/success-order', 'OrderController@SuccessOrder')->name('success-order');
+
 
 

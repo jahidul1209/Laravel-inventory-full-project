@@ -19,7 +19,7 @@
         <link href="{{ asset('public/css/bootstrap.min.css')}}" rel="stylesheet" />
 
         <!-- Font Icons -->
-        <link href="{{ asset('public/assets/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" />
+        <link href="{{ asset('public/assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
         <link href="{{ asset('public/assets/ionicon/css/ionicons.min.css')}}" rel="stylesheet" />
         <link href="{{ asset('public/css/material-design-iconic-font.min.css')}}" rel="stylesheet">
 
@@ -181,7 +181,7 @@
                                 <a href="{{route('home')}}" class="waves-effect active"><i class="md md-home"></i><span> Dashboard </span></a>
                             </li>
                              <li>
-                                <a href="{{route('home')}}" class="waves-effect"><i class=" md-account-balance"></i><span> POS </span></a>
+                                <a href="{{route('pos')}}" class="waves-effect"><i class=" md-account-balance"></i><span> POS </span></a>
                             </li>
 
                             <li class="has_sub">
@@ -227,6 +227,7 @@
                                 <ul class="list-unstyled">
                                      <li><a href="{{route('add-product')}}">Add Product</a></li>
                                       <li><a href="{{route('all-product')}}">All Product</a></li>
+                                       <li><a href="{{route('import-product')}}">Import Product</a></li>
                                 </ul>
                             </li>
                              <li class="has_sub">
@@ -235,6 +236,14 @@
                                      <li><a href="{{route('add-expence')}}">Add Expence</a></li>
                                     <li><a href="{{route('today-expence')}}">Today Expence</a></li>
                                     <li><a href="{{route('monthly-expence')}}">Monthly Expence</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="#" class="waves-effect"><i class="  md  md-store"></i><span> Orders </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                                <ul class="list-unstyled">
+                                     <li><a href="{{route('pending-order')}}">Pending Orders</a></li>
+                                     <li><a href="{{route('success-order')}}">Success Orders</a></li>
                                 </ul>
                             </li>
                             <li class="has_sub">
@@ -279,7 +288,7 @@
         </script>
 
         <!-- jQuery  -->
-      <!--   <script src="{{ asset('public/js/jquery.min.js')}}"></script> -->
+        <script src="{{ asset('public/js/jquery.min.js')}}"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script src="{{ asset('public/js/waves.js')}}"></script>
         <script src="{{ asset('public/js/wow.min.js')}}"></script>
@@ -292,12 +301,17 @@
         <script src="{{ asset('public/assets/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
         <script src="{{ asset('public/assets/jquery-blockui/jquery.blockUI.js')}}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+ <script src="{{ asset('public/js/bootstrap.min.js')}}"></script>
+
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
          <script src="{{asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
         <!-- sweet alerts -->
-<!--         <script src="{{ asset('public/assets/sweet-alert/sweet-alert.min.js')}}"></script>
-        <script src="{{ asset('public/assets/sweet-alert/sweet-alert.init.js')}}"></script> -->
+        <script src="{{ asset('public/assets/sweet-alert/sweet-alert.min.js')}}"></script>
+        <script src="{{ asset('public/assets/sweet-alert/sweet-alert.init.js')}}"></script>
 
         <!-- flot Chart -->
         <script src="{{ asset('public/assets/flot-chart/jquery.flot.js')}}"></script>
@@ -316,8 +330,6 @@
       <script src="{{asset('public/assets/datatables/jquery.dataTables.min.js')}}"></script>
         <script src="{{asset('public/assets/datatables/dataTables.bootstrap.js')}}"></script>
 
-
-        
 
         
         <!-- CUSTOM JS -->

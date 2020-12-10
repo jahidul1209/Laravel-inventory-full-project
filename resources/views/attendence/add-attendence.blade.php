@@ -16,6 +16,9 @@
                         </ol>
                     </div>
                 </div>
+              @php 
+                date_default_timezone_set("Asia/Dhaka");
+                @endphp
     <div class="text-center"><h3 class=" text-success">Today || Date : {{date('d M Y')}} ( {{date('D')}} )</h3></div>
               <div class="col-md-12">
                         <div class="panel panel-info">
@@ -52,14 +55,14 @@
 		                                <tr>
 		                                   <td>{{$row -> name}}</td>
 		                                   <td>	<img src = "{{URL :: to ($row->photo)}}" style="height: 80px; width: 80px;"/></td>
-		                                   <input type="hidden" name="user_id" value="{{$row -> id}}">
+		                                   <input type="hidden" name="user_id[]" value="{{$row -> id}}">
 										   <td> 
-										   	<input type="radio" for="Present" name="attendence" value="present" name = "present"> 
+										   	<input type="radio" for="Present" name="attendence[{{$row -> id}}]" value="present" required="" name = "present"> 
 										   	<label for="Present">Present</label><br>
-										   <input type="radio" name="attendence" value="absence" name="absence">
+										   <input type="radio" name="attendence[{{$row -> id}}]" value="absence" required="" name="absence">
 										   	<label for="Absence">Absence</label>
 										   </td>
-										   <input type="hidden" name="att_date" value="{{date('d/m/y')}}">
+										   <input type="hidden" name="att_date" value="{{date('d-m-y')}}">
 										   <input type="hidden" name="att_year" value="{{date('Y')}}">
 		                                </tr>
 		                               @endforeach()
@@ -68,16 +71,16 @@
 					</table>
          
 		          <button type="submit" class="btn btn-info waves-effect waves-light">Submit</button>
-		                       </form>
+		            </form>
                    </div>
                      </div>
 
 
-                            </div>
-                        </div> 
-                    </div>  
-              </div>
-          </div>
-     </div>
+                    </div>
+                </div> 
+            </div>  
+      </div>
+</div>
+</div>
 
 @endsection
